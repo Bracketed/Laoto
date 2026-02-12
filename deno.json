@@ -1,0 +1,28 @@
+{
+	"tasks": {
+		"dev": "deno run --watch src/Entrypoint.ts",
+		"run": "deno run src/Entrypoint.ts"
+	},
+	"imports": {
+		"@/": "./src/",
+		"@biomejs/biome": "npm:@biomejs/biome@^2.3.14"
+	},
+	"compilerOptions": {
+		"strict": true,
+		"module": "ESNext",
+		"lib": ["esnext", "deno.ns"],
+		"verbatimModuleSyntax": true,
+		"skipLibCheck": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"allowScripts": [
+		"npm:@swc/core@1.15.11",
+		"npm:esbuild@0.25.12",
+		"npm:esbuild@0.27.3"
+	]
+}
