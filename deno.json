@@ -1,16 +1,21 @@
 {
+	"nodeModulesDir": "auto",
 	"tasks": {
-		"dev": "deno run --watch src/Entrypoint.ts",
-		"run": "deno run src/Entrypoint.ts"
+		"dev": "deno run --env-file -A --watch src/Entrypoint.ts",
+		"run": "deno run --env-file -A src/Entrypoint.ts"
 	},
 	"imports": {
 		"@/": "./src/",
-		"@biomejs/biome": "npm:@biomejs/biome@^2.3.14"
+		"@biomejs/biome": "npm:@biomejs/biome@^2.3.14",
+		"@docker/node-sdk": "npm:@docker/node-sdk@^0.0.17",
+		"@types/node": "npm:@types/node@^25.2.3",
+		"tar-fs": "npm:tar-fs@^3.1.1"
 	},
 	"compilerOptions": {
 		"strict": true,
 		"module": "ESNext",
-		"lib": ["esnext", "deno.ns"],
+		"lib": ["esnext", "deno.ns", "decorators"],
+		"types": ["@types/node"],
 		"verbatimModuleSyntax": true,
 		"skipLibCheck": true,
 		"noFallthroughCasesInSwitch": true,
@@ -20,9 +25,5 @@
 			"@/*": ["./src/*"]
 		}
 	},
-	"allowScripts": [
-		"npm:@swc/core@1.15.11",
-		"npm:esbuild@0.25.12",
-		"npm:esbuild@0.27.3"
-	]
+	"allowScripts": ["npm:@swc/core@1.15.11", "npm:cpu-features@0.0.10", "npm:esbuild@0.25.12", "npm:esbuild@0.27.3", "npm:ssh2@1.17.0"]
 }
