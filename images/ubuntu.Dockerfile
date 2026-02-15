@@ -1,4 +1,6 @@
-FROM ubuntu:latest AS base
+ARG VERSION="latest"
+
+FROM ubuntu:${VERSION} AS base
 
 # Prevent interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
